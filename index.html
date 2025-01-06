@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shop</title>
+  <style>
+    /* CSS: Gaya Halaman */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #cart {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #cart li {
+      background-color: #fff;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    /* Styling untuk nota */
+    #nota {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    #nota h4 {
+      text-align: center;
+    }
+
+    #nota ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #nota li {
+      padding: 5px 0;
+    }
+
+    #nota button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selamat datang di CHRISTIAN.STORE!</h1>
+
+  <div class="products">
+    <div class="product" id="product1">
+      <img src="https://i.pinimg.com/736x/2e/17/a3/2e17a37921dca6b933d08b28b8653b3e.jpg" alt="Produk 1">
+      <h3>Baju Natal</h3>
+      <p>Harga: Rp 650.000</p>
+      <button onclick="addToCart('Baju Natal', 650000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product" id="product2">
+      <img src="https://i.pinimg.com/736x/7f/20/75/7f207545c2f17ad5703379ea2cd280b2.jpg" alt="Produk 2">
+      <h3>Topi Natal</h3>
+      <p>Harga: Rp 200.000</p>
+      <button onclick="addToCart('Topi Natal', 200000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product" id="product3">
+      <img src="https://i.pinimg.com/736x/96/88/7b/96887b1d29df87b98e82b28e2e1e57b0.jpg" alt="Produk 3">
+      <h3>Kalung Salib</h3>
+      <p>Harga: Rp 300.000</p>
+      <button onclick="addToCart('Kalung Salib', 300000)">Tambah ke Keranjang</button>
+    </div>
+    <div class="product" id="product4">
+        <img src="https://i.pinimg.com/736x/e1/1e/34/e11e3436a82516071b8ec32b44a1213a.jpg" alt="Produk 4">
+        <h3>Buku Sejarah Kitab</h3>
+        <p>Harga: Rp 250.000</p>
+        <button onclick="addToCart('Buku Sejarah Kitab', 250000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product5">
+        <img src="https://i.pinimg.com/736x/f0/24/88/f02488a53f4e2b3ee475dd61228aad1e.jpg" alt="Produk 5">
+        <h3>Cangkir Perjamuan Kudus</h3>
+        <p>Harga: Rp 700.000</p>
+        <button onclick="addToCart('Cangkir Perjamuan Kudus', 700000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product6">
+        <img src="https://i.pinimg.com/736x/fb/b0/ed/fbb0eda6f604d00c840427076ce38408.jpg" alt="Produk 6">
+        <h3>Roti Perjamuan Kudus</h3>
+        <p>Harga: Rp 950.000</p>
+        <button onclick="addToCart('Roti Perjamuan Kudus', 950000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product7">
+        <img src="https://down-id.img.susercontent.com/file/5b801b9dc1ccb05dca188fe7e88ead55" alt="Produk 7">
+        <h3>Peti</h3>
+        <p>Harga: Rp 2.700.000</p>
+        <button onclick="addToCart('Peti', 2700000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product8">
+        <img src="https://i.pinimg.com/736x/6f/1f/04/6f1f04484008a90b72ab007b7b00933b.jpg" alt="Produk 8">
+        <h3>Kantong Persembahan</h3>
+        <p>Harga: Rp 500.000</p>
+        <button onclick="addToCart('Kantong Persembahan', 500000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product9">
+        <img src="https://i.pinimg.com/736x/e0/a2/f7/e0a2f789303b517f2344ecb53c97717f.jpg" alt="Produk 9">
+        <h3>Gelang</h3>
+        <p>Harga: Rp 150.000</p>
+        <button onclick="addToCart('Gelang', 150000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product" id="product10">
+        <img src="https://i.pinimg.com/736x/15/88/73/1588739ab59f515a5b6b283caeec8906.jpg" alt="Produk 10">
+        <h3>Kalung Wajah Yesus</h3>
+        <p>Harga: Rp 5.000.000</p>
+        <button onclick="addToCart('Kalung Wajah Yesus', 5000000)">Tambah ke Keranjang</button>
+      </div>
+  </div>
+
+  <h2>Keranjang Belanja</h2>
+  <ul id="cart"></ul>
+
+  <h3>Total Harga: Rp <span id="totalPrice">0</span></h3>
+  <button onclick="checkout()">Checkout</button>
+
+  <!-- Nota Pembelian -->
+  <div id="nota">
+    <h4>Nota Pembelian</h4>
+    <ul id="notaItems"></ul>
+    <p><strong>Total: Rp <span id="notaTotalPrice"></span></strong></p>
+    <button onclick="resetShop()">Kembali ke Belanja</button>
+  </div>
+
+  <script>
+    // JavaScript: Fungsi Logika
+    let cart = [];
+    let totalPrice = 0;
+
+    function addToCart(productName, productPrice) {
+      // Menambah produk ke keranjang
+      cart.push({ name: productName, price: productPrice });
+      totalPrice += productPrice;
+
+      // Update keranjang di UI
+      updateCart();
+    }
+
+    function updateCart() {
+      // Menampilkan produk di keranjang
+      const cartList = document.getElementById('cart');
+      cartList.innerHTML = '';
+
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+        cartList.appendChild(li);
+      });
+
+      // Update total harga
+      document.getElementById('totalPrice').textContent = totalPrice.toLocaleString();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda kosong!');
+        return;
+      }
+
+      const confirmation = confirm(`Total Belanja Anda: Rp ${totalPrice.toLocaleString()}\nApakah Anda ingin melanjutkan ke pembayaran?`);
+      if (confirmation) {
+        // Menyembunyikan halaman belanja
+        document.querySelector('h1').style.display = 'none';
+        document.querySelector('.products').style.display = 'none';
+        document.querySelector('#cart').style.display = 'none';
+        document.querySelector('button').style.display = 'none';
+
+        // Menampilkan nota
+        showNota();
+      }
+    }
+
+    function showNota() {
+      // Menampilkan nota pembelian
+      const notaItems = document.getElementById('notaItems');
+      notaItems.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+        
+        // Adding Remove button for each item in the nota
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Hapus';
+        removeButton.onclick = () => removeFromNota(index);
+        li.appendChild(removeButton);
+
+        notaItems.appendChild(li);
+      });
+
+      document.getElementById('notaTotalPrice').textContent = totalPrice.toLocaleString();
+      document.getElementById('nota').style.display = 'block';
+    }
+
+    function removeFromNota(index) {
+      // Menghapus item dari cart dan mengurangi total price
+      const removedItem = cart.splice(index, 1)[0];
+      totalPrice -= removedItem.price;
+
+      // Update tampilan keranjang dan nota
+      updateCart();
+      showNota();
+    }
+
+    function resetShop() {
+      // Mengatur ulang tampilan ke halaman awal
+      cart = [];
+      totalPrice = 0;
+      updateCart();
+
+      document.querySelector('h1').style.display = 'block';
+      document.querySelector('.products').style.display = 'flex';
+      document.querySelector('#cart').style.display = 'block';
+      document.querySelector('button').style.display = 'inline-block';
+      document.getElementById('nota').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
